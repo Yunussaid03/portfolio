@@ -15,9 +15,24 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Yunus Said Khaidum | Portfolio",
+  title: "Yunus Said Khaidum | Software Developer",
   description:
-    "Brutalist portfolio for Yunus Said Khaidum, a third-year Computer Science and Technology student at Xiamen University Malaysia targeting IT internships.",
+    "Full-stack software developer building clean interfaces, reliable systems, and practical products. React, Next.js, Java, C++, and more.",
+  metadataBase: new URL("https://yunus.software"),
+  openGraph: {
+    title: "Yunus Said Khaidum | Software Developer",
+    description:
+      "Full-stack software developer building clean interfaces, reliable systems, and practical products.",
+    url: "https://yunus.software",
+    siteName: "Yunus Said Khaidum",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Yunus Said Khaidum | Software Developer",
+    description:
+      "Full-stack software developer building clean interfaces, reliable systems, and practical products.",
+  },
 };
 
 export default function RootLayout({
