@@ -5,7 +5,7 @@ import { ReactLenis } from "@studio-freight/react-lenis";
 export default function SmoothScroll({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: any;
 }>) {
   return (
     <ReactLenis

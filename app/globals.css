@@ -22,3 +22,36 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+@keyframes snowfall {
+  0% {
+    opacity: 0;
+    transform: translateY(-120%) rotateZ(0deg);
+  }
+  10% {
+    opacity: 0.85;
+  }
+  90% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(120vh) rotateZ(360deg);
+  }
+}
+
+@keyframes spin-wheel {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.snowflake {
+  user-select: none;
+  pointer-events: none;
+}
+
+.wheel-spin {
+  animation: spin-wheel 14s linear infinite;
+}
+
+
