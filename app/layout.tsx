@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import SmoothScroll from "@/app/components/SmoothScroll";
 import MobileNav from "@/app/components/MobileNav";
 import "./globals.css";
@@ -48,6 +49,7 @@ export default function RootLayout({
       <body className="min-h-full bg-black text-white antialiased">
         <MobileNav />
         <SmoothScroll>{children}</SmoothScroll>
+        <Analytics />
       </body>
     </html>
   );
