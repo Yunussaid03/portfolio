@@ -72,39 +72,39 @@ export default function ExperienceTimeline() {
   ];
 
   return (
-    <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-12">
+    <section id="experience" className="py-14 sm:py-20 px-3 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-8 sm:space-y-12">
       {/* Section Header */}
       <div className="text-center space-y-2">
-        <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
+        <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-white tracking-tight">
           Work Experience - <span className="orange-text">Professional Journey!</span>
         </h2>
-        <p className="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto">
+        <p className="text-slate-400 text-xs sm:text-base max-w-2xl mx-auto px-2">
           Production software engineering, high-stakes edge AI, and university leadership milestones.
         </p>
       </div>
 
-      {/* Connected Vertical Timeline */}
-      <div className="relative border-l-2 border-orange-500/30 ml-4 sm:ml-8 pl-6 sm:pl-10 space-y-12">
+      {/* Connected Vertical Timeline - Adjusted for Mobile screens */}
+      <div className="relative border-l-2 border-orange-500/30 ml-2 sm:ml-8 pl-4 sm:pl-10 space-y-8 sm:space-y-12">
         {experiences.map((exp) => (
           <div key={exp.num} className="relative group">
             {/* Timeline Dot */}
-            <div className="absolute -left-[31px] sm:-left-[47px] top-1.5 w-5 h-5 rounded-full bg-[#0b0b0b] border-2 border-orange-500 shadow-[0_0_15px_rgba(249,115,22,0.8)] flex items-center justify-center group-hover:scale-125 transition-transform">
-              <span className="w-2 h-2 rounded-full bg-orange-400"></span>
+            <div className="absolute -left-[23px] sm:-left-[47px] top-1.5 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#0b0b0b] border-2 border-orange-500 shadow-[0_0_15px_rgba(249,115,22,0.8)] flex items-center justify-center group-hover:scale-125 transition-transform">
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-orange-400"></span>
             </div>
 
             {/* Timeline Content Card */}
-            <div className="glass-card p-6 sm:p-8 space-y-4">
-              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/5 pb-3">
-                <div className="flex items-center gap-2.5">
-                  <span className="w-8 h-8 rounded-lg bg-orange-500/20 text-orange-400 font-mono font-bold text-sm flex items-center justify-center border border-orange-500/30">
+            <div className="glass-card p-4 sm:p-6 md:p-8 space-y-3 sm:space-y-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/5 pb-3">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-orange-500/20 text-orange-400 font-mono font-bold text-xs sm:text-sm flex items-center justify-center border border-orange-500/30">
                     {exp.num}
                   </span>
-                  <span className="font-mono text-xs px-2.5 py-1 rounded-full bg-orange-500/10 text-orange-400 border border-orange-500/30">
+                  <span className="font-mono text-[10px] sm:text-xs px-2.5 py-1 rounded-full bg-orange-500/10 text-orange-400 border border-orange-500/30">
                     {exp.tag}
                   </span>
                 </div>
 
-                <div className="flex items-center gap-3 font-mono text-xs text-slate-400">
+                <div className="flex items-center gap-2 font-mono text-[11px] sm:text-xs text-slate-400">
                   <div className="flex items-center gap-1 text-orange-400 font-bold">
                     <Calendar className="w-3.5 h-3.5 text-orange-400" />
                     <span>{exp.dates}</span>
@@ -113,20 +113,22 @@ export default function ExperienceTimeline() {
               </div>
 
               <div>
-                <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                <h3 className="text-lg sm:text-2xl font-bold text-white tracking-tight">
                   {exp.role}
                 </h3>
-                <div className="flex items-center gap-2 text-sm text-orange-400 font-medium mt-1">
-                  <Briefcase className="w-3.5 h-3.5" />
-                  <span>{exp.company}</span>
-                  <span className="text-slate-600">•</span>
-                  <span className="text-slate-400 text-xs flex items-center gap-1">
+                <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-orange-400 font-medium mt-1">
+                  <div className="flex items-center gap-1">
+                    <Briefcase className="w-3.5 h-3.5" />
+                    <span>{exp.company}</span>
+                  </div>
+                  <span className="text-slate-600 hidden xs:inline">•</span>
+                  <span className="text-slate-400 text-[11px] sm:text-xs flex items-center gap-1">
                     <MapPin className="w-3 h-3" /> {exp.location}
                   </span>
                 </div>
               </div>
 
-              <ul className="space-y-2 text-xs sm:text-sm text-slate-300 leading-relaxed list-disc list-inside">
+              <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-slate-300 leading-relaxed list-disc list-inside">
                 {exp.points.map((pt, i) => (
                   <li key={i}>{pt}</li>
                 ))}
@@ -136,7 +138,7 @@ export default function ExperienceTimeline() {
                 {exp.skills.map((s) => (
                   <span
                     key={s}
-                    className="px-2.5 py-1 rounded bg-black/60 font-mono text-[11px] text-slate-400 border border-white/5"
+                    className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded bg-black/60 font-mono text-[10px] sm:text-[11px] text-slate-400 border border-white/5"
                   >
                     {s}
                   </span>

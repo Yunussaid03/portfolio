@@ -42,9 +42,9 @@ export default function HeroDevHQ() {
   return (
     <section
       id="home"
-      className="relative min-h-[90vh] w-full flex flex-col justify-center items-center text-center px-4 sm:px-6 pt-28 pb-20 overflow-hidden"
+      className="relative min-h-[85vh] sm:min-h-[90vh] w-full flex flex-col justify-center items-center text-center px-4 sm:px-6 pt-24 sm:pt-28 pb-16 sm:pb-20 overflow-hidden"
     >
-      {/* 4 Floating Corner Badges (DevHQ Signature in Orange) */}
+      {/* 4 Floating Corner Badges (DevHQ Signature in Orange - Hidden on mobile) */}
       <div className="hidden lg:flex absolute top-32 left-16 w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/30 items-center justify-center text-orange-400 shadow-[0_0_20px_rgba(249,115,22,0.25)] animate-float-slow">
         <Code2 className="w-5 h-5" />
       </div>
@@ -59,40 +59,43 @@ export default function HeroDevHQ() {
       </div>
 
       {/* Main Hero Content */}
-      <div className="max-w-4xl mx-auto space-y-6 relative z-10">
-        <h2 className="text-sm sm:text-lg font-bold tracking-widest text-slate-300 uppercase">
+      <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6 relative z-10 w-full">
+        <h2 className="text-xs sm:text-base font-bold tracking-widest text-slate-300 uppercase">
           Welcome to the Portfolio Website of The
         </h2>
 
         {/* Dynamic Typing Title */}
-        <div className="min-h-[4.5rem] flex items-center justify-center">
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white">
+        <div className="min-h-[4rem] sm:min-h-[4.5rem] flex items-center justify-center px-2">
+          <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black tracking-tight text-white break-words">
             <span className="orange-text font-extrabold">{displayText}</span>
             <span className="animate-pulse text-orange-400">|</span>
           </h1>
         </div>
 
-        <h3 className="text-lg sm:text-2xl font-light text-slate-300 pt-1 tracking-wide">
+        <h3 className="text-base sm:text-2xl font-light text-slate-300 pt-1 tracking-wide leading-snug">
           Yunus Said Khaidum | <span className="text-orange-400 font-normal">Final-Year CS Undergrad</span> @ XMUM
         </h3>
 
-        <p className="max-w-2xl mx-auto text-sm sm:text-base text-slate-400 leading-relaxed font-normal">
+        <p className="max-w-2xl mx-auto text-xs sm:text-base text-slate-400 leading-relaxed font-normal px-2">
           Building safety-critical automotive AI, 57-vehicle B2B fleet ERPs, fintech payment infrastructure, and autonomous agent workflows.
         </p>
 
-        {/* Shimmer Action Buttons (DevHQ Style with Orange Glow) */}
-        <div className="flex flex-wrap items-center justify-center gap-4 pt-6">
+        {/* Shimmer Action Buttons (DevHQ Style with Orange Glow - Full width on mobile) */}
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 pt-4 sm:pt-6 w-full max-w-xs sm:max-w-none mx-auto">
           <a
             href="https://www.linkedin.com/in/yunus-said-6340253b8/"
             target="_blank"
             rel="noreferrer"
-            className="btn-resume group"
+            className="btn-resume group justify-center text-center w-full sm:w-auto"
           >
             <span>Let&apos;s Connect</span>
             <ArrowUpRight className="w-4 h-4 text-orange-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </a>
 
-          <a href="#projects" className="btn-resume group">
+          <a
+            href="#projects"
+            className="btn-resume group justify-center text-center w-full sm:w-auto"
+          >
             <FolderGit2 className="w-4 h-4 text-orange-400" />
             <span>Explore Work</span>
           </a>
@@ -101,7 +104,7 @@ export default function HeroDevHQ() {
             href="https://github.com/Yunussaid03"
             target="_blank"
             rel="noreferrer"
-            className="btn-resume group"
+            className="btn-resume group justify-center text-center w-full sm:w-auto"
           >
             <span>GitHub</span>
             <ArrowUpRight className="w-4 h-4 text-orange-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

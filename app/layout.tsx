@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import SmoothScroll from "@/app/components/SmoothScroll";
 import ScrollProgress from "@/app/components/ScrollProgress";
@@ -6,6 +6,13 @@ import BackgroundParticles from "@/app/components/BackgroundParticles";
 import CustomCursor from "@/app/components/CustomCursor";
 import SiteNav from "@/app/components/SiteNav";
 import "./globals.css";
+
+export const viewport: Viewport = {
+  themeColor: "#0b0b0b",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

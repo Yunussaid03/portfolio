@@ -9,21 +9,21 @@ export default function FooterDevHQ() {
   };
 
   return (
-    <footer className="pt-16 pb-12 border-t border-white/5 bg-[#080808] px-4 sm:px-6 lg:px-8 font-mono">
-      <div className="max-w-6xl mx-auto space-y-10">
+    <footer className="pt-12 sm:pt-16 pb-8 sm:pb-12 border-t border-white/5 bg-[#080808] px-4 sm:px-6 lg:px-8 font-mono">
+      <div className="max-w-6xl mx-auto space-y-8 sm:space-y-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
           {/* Brand & Tagline */}
           <div className="space-y-1.5">
-            <h2 className="text-2xl font-black text-white tracking-wider">
+            <h2 className="text-xl sm:text-2xl font-black text-white tracking-wider">
               Yunus<span className="orange-text">Said</span>
             </h2>
-            <p className="text-xs text-slate-400 font-sans">
+            <p className="text-xs text-slate-400 font-sans max-w-sm">
               Engineering at the Intersection of Scalable Systems and AI.
             </p>
           </div>
 
           {/* Quick Nav Links */}
-          <ul className="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-400">
+          <ul className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 text-xs text-slate-400">
             <li><a href="#home" className="hover:text-orange-400 transition-colors">Home</a></li>
             <li><a href="#about" className="hover:text-orange-400 transition-colors">About</a></li>
             <li><a href="#experience" className="hover:text-orange-400 transition-colors">Experience</a></li>
@@ -73,7 +73,7 @@ export default function FooterDevHQ() {
         </div>
 
         {/* Bottom Bar & Back To Top */}
-        <div className="pt-8 border-t border-white/5 flex items-center justify-between text-xs text-slate-500">
+        <div className="pt-6 sm:pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 text-center sm:text-left">
           <p>© {new Date().getFullYear()} Yunus Said Khaidum. All rights reserved.</p>
 
           <button

@@ -7,8 +7,17 @@ export default function CustomCursor() {
   const [outlinePos, setOutlinePos] = useState({ x: -100, y: -100 });
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(true);
 
   useEffect(() => {
+    // Only activate cursor for desktop mice with fine pointer tracking
+    const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
+    if (!hasFinePointer || window.innerWidth < 1024) {
+      setIsTouchDevice(true);
+      return;
+    }
+    setIsTouchDevice(false);
+
     let animId: number;
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -60,7 +69,7 @@ export default function CustomCursor() {
     };
   }, [pos.x, pos.y, isVisible]);
 
-  if (!isVisible) return null;
+  if (isTouchDevice || !isVisible) return null;
 
   return (
     <>

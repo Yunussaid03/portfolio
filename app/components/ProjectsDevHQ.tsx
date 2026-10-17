@@ -99,47 +99,47 @@ export default function ProjectsDevHQ() {
   ];
 
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto space-y-12">
+    <section id="projects" className="py-14 sm:py-20 px-3 sm:px-6 lg:px-8 max-w-6xl mx-auto space-y-8 sm:space-y-12">
       {/* Section Header */}
       <div className="text-center space-y-2">
-        <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
+        <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-white tracking-tight">
           Projects Showcase - <span className="orange-text">What I&apos;ve Built!</span>
         </h2>
-        <p className="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto">
+        <p className="text-slate-400 text-xs sm:text-base max-w-2xl mx-auto px-2">
           Explore production platforms, safety-critical AI watchdogs, and systems software engineering projects.
         </p>
       </div>
 
       {/* DevHQ Experience Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
         {projects.map((p) => (
           <div
             key={p.title}
-            className="glass-card p-6 sm:p-8 flex flex-col justify-between space-y-5 group relative"
+            className="glass-card p-4 sm:p-6 md:p-8 flex flex-col justify-between space-y-4 sm:space-y-5 group relative"
           >
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {/* Header Badges */}
-              <div className="flex items-center justify-between border-b border-white/5 pb-3">
-                <span className="font-mono text-xs text-orange-400 font-bold bg-orange-500/10 px-2.5 py-1 rounded-full border border-orange-500/30">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/5 pb-2.5">
+                <span className="font-mono text-[11px] sm:text-xs text-orange-400 font-bold bg-orange-500/10 px-2.5 py-0.5 sm:py-1 rounded-full border border-orange-500/30">
                   {p.date}
                 </span>
-                <span className="font-mono text-[11px] text-slate-400">
+                <span className="font-mono text-[10px] sm:text-[11px] text-slate-400">
                   {p.tag}
                 </span>
               </div>
 
               {/* Title & Category */}
               <div>
-                <span className="text-xs font-mono text-orange-400 uppercase tracking-wider font-semibold">
+                <span className="text-[11px] sm:text-xs font-mono text-orange-400 uppercase tracking-wider font-semibold">
                   {p.category}
                 </span>
-                <h3 className="text-2xl font-bold text-white tracking-tight mt-0.5 group-hover:text-orange-300 transition-colors">
+                <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mt-0.5 group-hover:text-orange-300 transition-colors">
                   {p.title}
                 </h3>
               </div>
 
               {/* Description */}
-              <p className="text-sm text-slate-300 leading-relaxed font-normal">
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
                 {p.description}
               </p>
 
@@ -156,13 +156,13 @@ export default function ProjectsDevHQ() {
               </div>
             </div>
 
-            {/* Action Buttons (DevHQ Side-by-Side Style in Vibrant Orange) */}
-            <div className="pt-4 border-t border-white/5 flex items-center gap-3">
+            {/* Action Buttons (Full-width touch targets on mobile) */}
+            <div className="pt-3 sm:pt-4 border-t border-white/5 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
               <a
                 href={p.liveUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-orange-500 hover:bg-orange-400 text-white text-xs font-semibold shadow-[0_0_15px_rgba(249,115,22,0.35)] hover:shadow-[0_0_20px_rgba(249,115,22,0.55)] transition-all"
+                className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-orange-500 hover:bg-orange-400 text-white text-xs font-semibold shadow-[0_0_15px_rgba(249,115,22,0.35)] hover:shadow-[0_0_20px_rgba(249,115,22,0.55)] transition-all text-center"
               >
                 <Eye className="w-4 h-4" />
                 <span>{p.liveLabel}</span>
@@ -172,7 +172,7 @@ export default function ProjectsDevHQ() {
                 href={p.githubUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 text-xs font-semibold border border-white/10 hover:border-orange-500/30 transition-all"
+                className="flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 text-xs font-semibold border border-white/10 hover:border-orange-500/30 transition-all text-center"
               >
                 <GithubIcon className="w-4 h-4 text-orange-400" />
                 <span>GitHub</span>

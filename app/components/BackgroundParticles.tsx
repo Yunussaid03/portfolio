@@ -15,8 +15,9 @@ export default function BackgroundParticles() {
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    // 3,000 3D Star points (exact replica of DevHQ's 3200 stars)
-    const starCount = 1800;
+    // Responsive star count: 500 stars on mobile to save battery, 1800 on desktop
+    const isMobile = window.innerWidth < 768;
+    const starCount = isMobile ? 500 : 1800;
     const stars: { x: number; y: number; z: number; o: number }[] = [];
 
     for (let i = 0; i < starCount; i++) {
@@ -38,14 +39,22 @@ export default function BackgroundParticles() {
       targetMouseY = (e.clientY - height / 2) * 0.0008;
     };
 
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        targetMouseX = (e.touches[0].clientX - width / 2) * 0.0005;
+        targetMouseY = (e.touches[0].clientY - height / 2) * 0.0005;
+      }
+    };
+
     const handleResize = () => {
       if (!canvas) return;
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
+    window.addEventListener("resize", handleResize, { passive: true });
 
     const render = () => {
       // Smooth mouse lerp
@@ -79,15 +88,14 @@ export default function BackgroundParticles() {
         const py = cy + rotY * scale;
 
         if (px >= 0 && px <= width && py >= 0 && py <= height) {
-          const size = Math.max(0.6, (1 - star.z / 1500) * 2.4);
+          const size = Math.max(0.6, (1 - star.z / 1500) * 2.2);
           const alpha = (1 - star.z / 1500) * star.o;
 
           // Render glowing star
           ctx.beginPath();
           ctx.arc(px, py, size, 0, Math.PI * 2);
-          // Subtle warm tint matching the orange theme
           ctx.fillStyle = `rgba(255, 235, 215, ${alpha})`;
-          ctx.shadowBlur = size > 1.8 ? 6 : 0;
+          ctx.shadowBlur = size > 1.8 ? 5 : 0;
           ctx.shadowColor = "rgba(249, 115, 22, 0.6)";
           ctx.fill();
         }
@@ -100,6 +108,7 @@ export default function BackgroundParticles() {
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("touchmove", handleTouchMove);
       window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(animId);
     };
