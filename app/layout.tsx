@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import SmoothScroll from "@/app/components/SmoothScroll";
-import MobileNav from "@/app/components/MobileNav";
+import ScrollProgress from "@/app/components/ScrollProgress";
+import BackgroundParticles from "@/app/components/BackgroundParticles";
+import CustomCursor from "@/app/components/CustomCursor";
+import SiteNav from "@/app/components/SiteNav";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,23 +18,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Yunus Said Khaidum | Software Developer",
+  title: "Yunus | DevHQ",
   description:
-    "Full-stack software developer building clean interfaces, reliable systems, and practical products. React, Next.js, Java, C++, and more.",
+    "Personal Portfolio of Yunus Said Khaidum, a Final-Year Computer Science Undergraduate at Xiamen University Malaysia. Explore my projects, experience, and skills.",
   metadataBase: new URL("https://yunus.software"),
   openGraph: {
-    title: "Yunus Said Khaidum | Software Developer",
+    title: "Yunus | DevHQ",
     description:
-      "Full-stack software developer building clean interfaces, reliable systems, and practical products.",
+      "Explore my projects, work experience, and technical skills.",
     url: "https://yunus.software",
     siteName: "Yunus Said Khaidum",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yunus Said Khaidum | Software Developer",
+    title: "Yunus | DevHQ",
     description:
-      "Full-stack software developer building clean interfaces, reliable systems, and practical products.",
+      "Explore my projects, work experience, and technical skills.",
   },
 };
 
@@ -43,10 +46,21 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
-      <body className="min-h-full bg-black text-white antialiased">
-        <MobileNav />
+      <head>
+        {/* Devicon CDN for authentic official colored tech logos */}
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+        />
+      </head>
+      <body className="bg-[#0b0b0b] text-white antialiased relative">
+        <ScrollProgress />
+        <CustomCursor />
+        <BackgroundParticles />
+        <SiteNav />
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
